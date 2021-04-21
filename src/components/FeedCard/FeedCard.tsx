@@ -1,25 +1,25 @@
-// import UserCard from "../UserCard/UserCard"
+import UserCard from "../UserCard/UserCard"
 
 import './FeedCard.scss';
 
 interface Props {
     image: {imageID: number, imageURL: string, userID: number};
-    user?: {
+    user: {
       id: number;
       username: string;
       avatar: string;
-      album: string[]
+      album: number[]
     };
 }
 
 function FeedCard(props: Props): JSX.Element {
 
   return (
-    <div className="album">
+    <div className="feed-card">
         <div>
           <img src={props.image.imageURL} alt={props.image.imageID.toString()}/>
         </div>
-        {/* <UserCard user={props.user}/> */}
+        {props.user ? <UserCard user={props.user}/> : null }
     </div>
   );
 }

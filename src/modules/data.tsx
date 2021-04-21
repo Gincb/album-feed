@@ -21,5 +21,5 @@ export function getImages(callback: Function){
     },
   })
     .then((e) => e.json())
-    .then(data=>callback(data));
+    .then(data=>callback(data.sort(() => Math.random() - 0.5)));
 }

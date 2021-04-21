@@ -7,10 +7,10 @@ import InfiniteScroll from 'react-infinite-scroller';
 import './App.scss';
 
 function App(): JSX.Element {
-  const [users, setUsers] = useState<{id: number, username: string, avatar: string, album: number[]}[]>();
+  const [users, setUsers] = useState<{id: number, username: string, avatar: string, album: number[]}[]>([]);
   const [images, setImages] = useState<{imageID: number, imageURL: string, userID: number}[]>([]);
   const [feedImages, setFeedImages] = useState<{imageID: number, imageURL: string, userID: number}[]>([]);
-
+console.log(users?.[0]);
   const fetchMoreImages = () => {
     setFeedImages([
       ...feedImages,
@@ -27,7 +27,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
         {
-        images ? 
+        images.length !== 0 ? 
 
         <InfiniteScroll
         pageStart={0}
@@ -36,14 +36,14 @@ function App(): JSX.Element {
         loader={<Loader type="Rings" color="pink" height={80} width={80} />}
         >
           {
-            feedImages.sort(() => Math.random() - 0.5).map(i => {
-              return <FeedCard key={Math.random() + i.imageID} image={i}/>
+            feedImages.map(i => {
+              return <FeedCard key={Math.random() + i.imageID} image={i} user={users?.[i.userID-1]}/>
             })
           }
         </InfiniteScroll>
         :
         <div className="loader-wrapper"> 
-       <Loader type="Rings" color="pink" height={80} width={80} />
+        <Loader type="Rings" color="pink" height={150} width={150} />
        </div>
       }
     </div>
