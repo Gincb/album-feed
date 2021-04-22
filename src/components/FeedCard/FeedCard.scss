@@ -1,4 +1,42 @@
-img{
-    object-fit: cover;
-    width: 10%  ;
+.feed-card {
+    margin: 4em 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 70%;
+    
+    .feed-image{
+        position: relative;
+        margin: 0 2em;
+        padding: 0.5em;
+        background-color: white;
+        width: 70%;
+        border-radius: 20px;
+
+        >img {
+        border-radius: 20px;
+
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .user {
+        width: 30%;
+        text-align: center;
+    }
+
+    .bubble-bottom-left:before {
+        // layout
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 100%;
+	right: -1em;
+    top: 3em;
+	border: 2em solid transparent;
+	border-right: none;
+	border-left-color: white;
+      }
 }

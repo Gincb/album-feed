@@ -16,7 +16,7 @@ function FeedCard(props: Props): JSX.Element {
 
   return (
     <div className="feed-card">
-        <div>
+        <div className='feed-image bubble-bottom-left'>
           <img src={props.image.imageURL} alt={props.image.imageID.toString()}/>
         </div>
         {props.user ? <UserCard user={props.user}/> : null }

@@ -30,6 +30,7 @@ console.log(users?.[0]);
         images.length !== 0 ? 
 
         <InfiniteScroll
+        className='wrapper'
         pageStart={0}
         loadMore={fetchMoreImages}
         hasMore={feedImages.length < images.length}
